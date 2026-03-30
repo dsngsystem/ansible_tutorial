@@ -1,0 +1,107 @@
+
+root@dsng:/home/dsng# lspci |grep -i nvidia
+2d:00.0 3D controller: NVIDIA Corporation Device 20b5 (rev a1)
+3a:00.0 3D controller: NVIDIA Corporation Device 20b5 (rev a1)
+3b:00.0 3D controller: NVIDIA Corporation Device 20b5 (rev a1)
+3c:00.0 3D controller: NVIDIA Corporation Device 20b5 (rev a1)
+ad:00.0 3D controller: NVIDIA Corporation Device 20b5 (rev a1)
+ae:00.0 3D controller: NVIDIA Corporation Device 20b5 (rev a1)
+bd:00.0 3D controller: NVIDIA Corporation Device 20b5 (rev a1)
+be:00.0 3D controller: NVIDIA Corporation Device 20b5 (rev a1)
+
+
+2d:00.0 3D controller: NVIDIA Corporation Device 20b5 (rev a1)
+        Subsystem: NVIDIA Corporation Device 1533
+        Control: I/O- Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr+ Stepping- SERR+ FastB2B- DisINTx+
+        Status: Cap+ 66MHz- UDF- FastB2B- ParErr- DEVSEL=fast >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+        Latency: 0, Cache Line Size: 32 bytes
+        Interrupt: pin A routed to IRQ 16
+        NUMA node: 0
+        Region 0: Memory at a7000000 (32-bit, non-prefetchable) [size=16M]
+        Region 1: Memory at 6c000000000 (64-bit, prefetchable) [size=128G]
+        Region 3: Memory at 6f428000000 (64-bit, prefetchable) [size=32M]
+        Capabilities: [60] Power Management version 3
+                Flags: PMEClk- DSI- D1- D2- AuxCurrent=0mA PME(D0+,D1-,D2-,D3hot+,D3cold-)
+                Status: D0 NoSoftRst+ PME-Enable- DSel=0 DScale=0 PME-
+        Capabilities: [68] Null
+        Capabilities: [78] Express (v2) Endpoint, MSI 00
+                DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s unlimited, L1 <64us
+                        ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+ SlotPowerLimit 25.000W
+                DevCtl: CorrErr- NonFatalErr- FatalErr+ UnsupReq-
+                        RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+ FLReset-
+                        MaxPayload 256 bytes, MaxReadReq 512 bytes
+                DevSta: CorrErr- NonFatalErr- FatalErr- UnsupReq- AuxPwr- TransPend-
+                LnkCap: Port #0, Speed 16GT/s, Width x16, ASPM not supported
+                        ClockPM+ Surprise- LLActRep- BwNot- ASPMOptComp+
+                LnkCtl: ASPM Disabled; RCB 64 bytes Disabled- CommClk-
+                        ExtSynch- ClockPM+ AutWidDis- BWInt- AutBWInt-
+                LnkSta: Speed 16GT/s (ok), Width x16 (ok)
+                        TrErr- Train- SlotClk+ DLActive- BWMgmt- ABWMgmt-
+                DevCap2: Completion Timeout: Range AB, TimeoutDis+, NROPrPrP-, LTR-
+                         10BitTagComp+, 10BitTagReq+, OBFF Via message, ExtFmt-, EETLPPrefix-
+                         EmergencyPowerReduction Not Supported, EmergencyPowerReductionInit-
+                         FRS-, TPHComp-, ExtTPHComp-
+                         AtomicOpsCap: 32bit- 64bit- 128bitCAS-
+                DevCtl2: Completion Timeout: 50us to 50ms, TimeoutDis-, LTR-, OBFF Disabled
+                         AtomicOpsCtl: ReqEn-
+                LnkCtl2: Target Link Speed: 16GT/s, EnterCompliance- SpeedDis-
+                         Transmit Margin: Normal Operating Range, EnterModifiedCompliance- ComplianceSOS-
+                         Compliance De-emphasis: -6dB
+                LnkSta2: Current De-emphasis Level: -6dB, EqualizationComplete+, EqualizationPhase1+
+                         EqualizationPhase2+, EqualizationPhase3+, LinkEqualizationRequest-
+        Capabilities: [c8] MSI-X: Enable+ Count=6 Masked-
+                Vector table: BAR=0 offset=00b90000
+                PBA: BAR=0 offset=00ba0000
+        Capabilities: [100 v1] Virtual Channel
+                Caps:   LPEVC=0 RefClk=100ns PATEntryBits=1
+                Arb:    Fixed- WRR32- WRR64- WRR128-
+                Ctrl:   ArbSelect=Fixed
+                Status: InProgress-
+                VC0:    Caps:   PATOffset=00 MaxTimeSlots=1 RejSnoopTrans-
+
+
+
+
+
+
+lspci -vv | egrep -i "2d:00.0|3a:00.0|3b:00.0|3c:00.0|ad:00.0|ae:00.0|bd:00.0|be:00.0" -A 22 | grep -i LnkCap
+
+
+
+
+
+
+
+
+
+
+dmidecode -t slot | grep -e PCI-E -e Bus
+        Designation: AOM PCI-E 3.0 X4
+        Bus Address: 0000:03:00.0
+        Bus Address: 0000:97:01.0
+        Designation: SLOT1 PCI-E 5.0 X16
+        Bus Address: 0000:3a:00.0
+        Designation: SLOT2 PCI-E 5.0 X16
+        Bus Address: 0000:3b:00.0
+        Designation: SLOT3 PCI-E 5.0 X16
+        Bus Address: 0000:3c:00.0
+        Designation: SLOT4 PCI-E 5.0 X16
+        Bus Address: 0000:2d:00.0
+        Designation: SLOT5 PCI-E 5.0 X16
+        Bus Address: 0000:2c:00.0
+        Designation: SLOT6 PCI-E 5.0 X16
+        Bus Address: 0000:2b:00.0
+        Designation: SLOT7 PCI-E 5.0 X16
+        Bus Address: 0000:15:01.0
+        Designation: SLOT8 PCI-E 5.0 X16
+        Bus Address: 0000:bc:00.0
+        Designation: SLOT9 PCI-E 5.0 X16
+        Bus Address: 0000:bd:00.0
+        Designation: SLOT10 PCI-E 5.0 X16
+        Bus Address: 0000:be:00.0
+        Designation: SLOT11 PCI-E 5.0 X16
+        Bus Address: 0000:ae:00.0
+        Designation: SLOT12 PCI-E 5.0 X16
+        Bus Address: 0000:ad:00.0
+        Designation: SLOT13 PCI-E 5.0 X16
+        Bus Address: 0000:ac:00.0
